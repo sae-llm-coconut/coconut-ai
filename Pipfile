@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+lint-editorconfig = "ec"
+lint-python = "autopep8 src"
+lint-types = "mypy src"
+start = "python -m src"
+
+[packages]
+requests = "==2.31.0"
+
+[dev-packages]
+autopep8 = "==2.0.4"
+editorconfig-checker = "==2.7.2"
+mypy = "==1.5.1"

@@ -1,0 +1,10 @@
+{
+  "autoDocstring.docstringFormat": "google",
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "strict",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
+  }
+}
