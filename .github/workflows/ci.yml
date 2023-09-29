@@ -20,7 +20,6 @@ jobs:
       - name: 'Install Pipenv'
         run: 'pip install pipenv'
 
-      - run: 'pipenv shell'
       - run: 'pipenv install --dev'
 
       - run: 'pipenv run lint-editorconfig'
