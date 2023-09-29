@@ -17,7 +17,6 @@ Coconut AI
 ```sh
 git clone git@github.com:sae-llm-coconut/coconut-ai.git
 cd coconut-ai
-pipenv shell
 pipenv install --dev
 ```
 
