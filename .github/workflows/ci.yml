@@ -1,0 +1,28 @@
+name: 'ci'
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  ci:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v4.0.0'
+
+      - name: 'Setup Python'
+        uses: 'actions/setup-python@v4.7.0'
+        with:
+          python-version: '3.10.x'
+
+      - name: 'Install Pipenv'
+        run: 'pip install pipenv'
+
+      - run: 'pipenv shell'
+      - run: 'pipenv install --dev'
+
+      - run: 'pipenv run lint-editorconfig'
+      - run: 'pipenv run lint-python'
+      - run: 'pipenv run lint-types'
