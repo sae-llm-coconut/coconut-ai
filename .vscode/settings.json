@@ -3,7 +3,7 @@
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "strict",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
+    "editor.defaultFormatter": "ms-python.autopep8",
     "editor.tabSize": 4,
     "editor.formatOnSave": true
   }
