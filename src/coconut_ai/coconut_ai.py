@@ -23,9 +23,6 @@ class CoconutAI:
     def __init__(self) -> None:
         pass
 
-    def __name__(self) -> str:
-        return "coconut_ai"
-
     def text_to_image(self, options: TextToImageOptions) -> None:
         print("---Text To Image---")
         print(f"Text: {options['text']}")

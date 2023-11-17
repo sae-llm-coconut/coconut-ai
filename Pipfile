@@ -11,9 +11,7 @@ lint-editorconfig = "ec"
 lint-python = "autopep8 src"
 lint-types = "mypy src"
 start = "python -m src"
-
-[packages]
-requests = "==2.31.0"
+build = "python setup.py sdist"
 
 [dev-packages]
 autopep8 = "==2.0.4"

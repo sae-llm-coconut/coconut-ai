@@ -14,5 +14,5 @@ setuptools.setup(
     python_requires='>=3.10, <3.11',
     package_dir={'':'src'},
     packages=setuptools.find_packages(where="src"),
-    install_requires=['requests==2.31.0']
+    install_requires=[]
 )
