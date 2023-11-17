@@ -4,6 +4,8 @@
 
 Coconut AI
 
+<https://pypi.org/project/coconut-ai/>
+
 ## Getting Started
 
 ### Prerequisites
