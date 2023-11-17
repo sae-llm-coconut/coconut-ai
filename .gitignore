@@ -7,3 +7,4 @@ __pycache__/
 build/
 dist/
 *.spec
+coconut_ai.egg-info
