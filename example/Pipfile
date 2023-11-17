@@ -10,5 +10,4 @@ python_version = "3.10"
 start = "python -m src"
 
 [packages]
-coconut-ai = "==0.0.2"
-
+coconut-ai = "==0.0.3"
