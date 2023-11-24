@@ -8,3 +8,4 @@ build/
 dist/
 *.spec
 coconut_ai.egg-info
+data

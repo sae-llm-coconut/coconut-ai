@@ -6,6 +6,8 @@ Coconut AI
 
 <https://pypi.org/project/coconut-ai/>
 
+Data: <https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt>
+
 ## Getting Started
 
 ### Prerequisites
