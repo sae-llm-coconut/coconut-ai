@@ -1,11 +1,11 @@
 import os
 from .coconut_ai import coconut_ai
-from . import utils
+# from . import utils
 
 
 if __name__ == "__main__":
     # Download model
-    utils.download_model(url="", folder_name="example_model", file_name="example_model.pt")
+    # utils.download_model(url="", folder_name="example_model", file_name="example_model.pt")
 
     # Create CoconutAI instance
     coconut_ai_instance = coconut_ai.CoconutAI()
