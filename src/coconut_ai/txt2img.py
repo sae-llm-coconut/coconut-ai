@@ -1,4 +1,4 @@
-#Source: https://github.com/Stability-AI/stablediffusion/blob/main/scripts/txt2img.py
+# Source: https://github.com/Stability-AI/stablediffusion/blob/main/scripts/txt2img.py
 
 import argparse, os
 import cv2
@@ -270,7 +270,7 @@ def main(opt):
             raise ValueError('Bfloat16 is supported only for torchscript+ipex')
         if opt.bf16 and unet.dtype != torch.bfloat16:
             raise ValueError("Use configs/stable-diffusion/intel/ configs with bf16 enabled if " +
-                             "you'd like to use bfloat16 with CPU.")
+                            "you'd like to use bfloat16 with CPU.")
         if unet.dtype == torch.float16 and device == torch.device("cpu"):
             raise ValueError("Use configs/stable-diffusion/intel/ configs for your model if you'd like to run it on CPU.")
 
@@ -320,14 +320,14 @@ def main(opt):
             for _ in range(3):
                 c = model.get_learned_conditioning(prompts)
             samples_ddim, _ = sampler.sample(S=5,
-                                             conditioning=c,
-                                             batch_size=batch_size,
-                                             shape=shape,
-                                             verbose=False,
-                                             unconditional_guidance_scale=opt.scale,
-                                             unconditional_conditioning=uc,
-                                             eta=opt.ddim_eta,
-                                             x_T=start_code)
+                                            conditioning=c,
+                                            batch_size=batch_size,
+                                            shape=shape,
+                                            verbose=False,
+                                            unconditional_guidance_scale=opt.scale,
+                                            unconditional_conditioning=uc,
+                                            eta=opt.ddim_eta,
+                                            x_T=start_code)
             print("Running a forward pass for decoder")
             for _ in range(3):
                 x_samples_ddim = model.decode_first_stage(samples_ddim)
@@ -347,14 +347,14 @@ def main(opt):
                     c = model.get_learned_conditioning(prompts)
                     shape = [opt.C, opt.H // opt.f, opt.W // opt.f]
                     samples, _ = sampler.sample(S=opt.steps,
-                                                     conditioning=c,
-                                                     batch_size=opt.n_samples,
-                                                     shape=shape,
-                                                     verbose=False,
-                                                     unconditional_guidance_scale=opt.scale,
-                                                     unconditional_conditioning=uc,
-                                                     eta=opt.ddim_eta,
-                                                     x_T=start_code)
+                                                    conditioning=c,
+                                                    batch_size=opt.n_samples,
+                                                    shape=shape,
+                                                    verbose=False,
+                                                    unconditional_guidance_scale=opt.scale,
+                                                    unconditional_conditioning=uc,
+                                                    eta=opt.ddim_eta,
+                                                    x_T=start_code)
 
                     x_samples = model.decode_first_stage(samples)
                     x_samples = torch.clamp((x_samples + 1.0) / 2.0, min=0.0, max=1.0)
@@ -382,7 +382,7 @@ def main(opt):
             grid_count += 1
 
     print(f"Your samples are ready and waiting for you here: \n{outpath} \n"
-          f" \nEnjoy.")
+        f" \nEnjoy.")
 
 
 if __name__ == "__main__":
