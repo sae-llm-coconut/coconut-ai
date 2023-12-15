@@ -1,5 +1,9 @@
 from typing import TypedDict
-
+from PIL import Image
+import json
+import requests
+import io
+import base64
 
 class TextToImageOptions(TypedDict):
     text: str
@@ -18,6 +22,7 @@ class ImageToImageOptions(TypedDict):
     image_path: str
     output_path: str
 
+url = "http://127.0.0.1:7860"
 
 class CoconutAI:
     def __init__(self) -> None:
@@ -26,7 +31,18 @@ class CoconutAI:
     def text_to_image(self, options: TextToImageOptions) -> None:
         print("---Text To Image---")
         print(f"Text: {options['text']}")
+        payload = {
+            "prompt": options['text'],
+            "steps": 5
+        }
+
+        response = requests.post(url=f'http://127.0.0.1:7860/sdapi/v1/txt2img', json=payload)
+        r = response.json()
+
         print(f"Output Image Path: {options['output_path']}")
+
+        image = Image.open(io.BytesIO(base64.b64decode(r['images'][0])))
+        image.save(options['output_path'])
 
     def image_to_text(self, options: ImageToTextOptions) -> str:
         print("---Image To Text---")
@@ -41,4 +57,14 @@ class CoconutAI:
     def image_to_image(self, options: ImageToImageOptions) -> None:
         print("---Image To Image---")
         print(f"Image Path: {options['image_path']}")
+        payload = {
+            "prompt": options['image_path'],
+            "steps": 5
+        }
+        response = requests.post(url=f'http://127.0.0.1:7860/sdapi/v1/img2img', json=payload)
+        r = response.json()
+
         print(f"Output Image Path: {options['output_path']}")
+        image = Image.open(io.BytesIO(base64.b64decode(r['images'][0])))
+        image.save(options['output_path'])
+
