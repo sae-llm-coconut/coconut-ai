@@ -8,34 +8,10 @@ python_version = "3.10"
 
 [scripts]
 lint-editorconfig = "ec"
-lint-python = "autopep8 src"
-lint-types = "mypy src"
-start = "python -m src"
+lint-autopep8 = "autopep8 --recursive --diff src"
+lint-mypy = "mypy src"
+start = "python -m example/src"
 build = "python setup.py sdist"
-txt2img = "python src/coconut_ai/txt2img.py --prompt 'a professional photograph of an astronaut riding a horse' --ckpt ./data/768-v-ema.ckpt --config configs/stable-diffusion/v2-inference-v.yaml --H 768 --W 768"
-
-
-[dev-packages]
-autopep8 = "==2.0.4"
-editorconfig-checker = "==2.7.3"
-mypy = "==1.7.0"
-setuptools = "*"
 
 [packages]
-torch = "*"
-torchvision = "*"
-albumentations = "==0.4.3"
-pudb = "==2019.2"
-imageio = "==2.9.0"
-imageio-ffmpeg = "==0.4.2"
-pytorch-lightning = "==1.4.2"
-torchmetrics = "==0.6"
-omegaconf = "==2.1.1"
-einops = "==0.3.0"
-transformers = "==4.19.2"
-webdataset = "==0.2.5"
-open-clip-torch = "==2.7.0"
-gradio = "==3.13.2"
-kornia = "==0.6"
-invisible-watermark = ">=0.1.5"
-streamlit-drawable-canvas = "==0.8.0"
+coconut-ai = {path = ".", editable = true}

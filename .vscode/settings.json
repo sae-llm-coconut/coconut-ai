@@ -2,6 +2,7 @@
   "autoDocstring.docstringFormat": "google",
   "python.languageServer": "Pylance",
   "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.autoImportCompletions": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8",
     "editor.tabSize": 4,
