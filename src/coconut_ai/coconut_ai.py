@@ -1,9 +1,12 @@
-from typing import TypedDict
-from PIL import Image
 import json
 import requests
 import io
 import base64
+import urllib.request
+import os
+from typing import TypedDict
+from PIL import Image
+
 
 class TextToImageOptions(TypedDict):
     text: str
@@ -24,6 +27,10 @@ class ImageToImageOptions(TypedDict):
 
 url = "http://127.0.0.1:7860"
 
+def encode_file_to_base64(path: str)->str:
+    with open(path, 'rb') as file:
+        return base64.b64encode(file.read()).decode('utf-8')
+
 class CoconutAI:
     def __init__(self) -> None:
         pass
@@ -38,7 +45,6 @@ class CoconutAI:
 
         response = requests.post(url=f'http://127.0.0.1:7860/sdapi/v1/txt2img', json=payload)
         r = response.json()
-
         print(f"Output Image Path: {options['output_path']}")
 
         image = Image.open(io.BytesIO(base64.b64decode(r['images'][0])))
@@ -58,13 +64,14 @@ class CoconutAI:
         print("---Image To Image---")
         print(f"Image Path: {options['image_path']}")
         payload = {
-            "prompt": options['image_path'],
+            "init_images": [encode_file_to_base64(options['image_path'])],
             "steps": 5
         }
         response = requests.post(url=f'http://127.0.0.1:7860/sdapi/v1/img2img', json=payload)
         r = response.json()
-
         print(f"Output Image Path: {options['output_path']}")
         image = Image.open(io.BytesIO(base64.b64decode(r['images'][0])))
         image.save(options['output_path'])
+
+
 
