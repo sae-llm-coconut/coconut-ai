@@ -17,15 +17,5 @@ setuptools.setup(
     install_requires=[
         'requests==2.31.0',
         'pillow==10.2.0'
-    ],
-    extra_requires={
-        'dev': [
-            'autopep8==2.0.4',
-            'editorconfig-checker==2.7.3',
-            'mypy==1.8.0',
-            'setuptools',
-            'types-pillow==10.2.0.20240111',
-            'types-requests==2.31.0.20240106'
-        ]
-    }
+    ]
 )
