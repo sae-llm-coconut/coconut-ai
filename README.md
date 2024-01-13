@@ -6,8 +6,6 @@ Coconut AI
 
 <https://pypi.org/project/coconut-ai/>
 
-Data: <https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt>
-
 ## Getting Started
 
 ### Prerequisites
@@ -15,19 +13,30 @@ Data: <https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema
 - [Python](https://www.python.org/) v3.10
 - [Pipenv](https://pipenv.pypa.io/)
 - [Pip](https://pypi.org/project/pip/)
+- [AUTOMATIC1111/Stable Diffusion Web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) v1.6.0
 
 ### Installation
 
 ```sh
-git clone git@github.com:sae-llm-coconut/coconut-ai.git
-cd coconut-ai
-pipenv install --dev
+pipenv install coconut-ai
 ```
 
 ### Usage
 
 ```sh
-pipenv run start
+# Go to AUTOMATIC1111/Stable Diffusion web UI source code
+cd stable-diffusion-webui
+
+# Run the AUTOMATIC1111/Stable Diffusion Web API
+./webui.sh --api --nowebui
+
+# Go to coconut-ai source code
+cd ../coconut-ai
+
+# Run the coconut-ai example script
+cd example
+pipenv install
+pipenv run start --type="text_to_image" --input="Coconut" --output="./data/output.png"
 ```
 
 ## 💡 Contributing
