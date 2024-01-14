@@ -10,7 +10,7 @@ python_version = "3.10"
 lint-autopep8 = "autopep8 --recursive --diff src"
 lint-mypy = "mypy src"
 lint-editorconfig = "ec"
-start = "python -m example/src"
+start = "python -m src"
 build = "python setup.py sdist"
 
 [packages]
