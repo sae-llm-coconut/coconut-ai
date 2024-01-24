@@ -1,7 +1,8 @@
 import requests
 import io
 import base64
-from typing import TypedDict
+from typing import Iterator, TypedDict
+from llama_cpp import Llama
 
 from PIL import Image
 
@@ -20,12 +21,10 @@ class TextToImageOptions(TypedDict):
     steps: int
 
 
-class ImageToTextOptions(TypedDict):
-    input_path: str
-
-
 class TextToTextOptions(TypedDict):
-    text: str
+    input_text: str
+    model_path: str
+    max_tokens: int
 
 
 class ImageToImageOptions(TypedDict):
@@ -46,16 +45,23 @@ def text_to_image(options: TextToImageOptions) -> None:
     image.close()
 
 
-def image_to_text(options: ImageToTextOptions) -> str:
-    print("---Image To Text---")
-    print(f"Image Path: {options['input_path']}")
-    return "Text"
-
-
 def text_to_text(options: TextToTextOptions) -> str:
-    print("---Text To Text---")
-    print(f"Text: {options['text']}")
-    return options["text"]
+    """
+    Given a model path, input text, and max tokens, return the generated text.
+
+    Returns an empty string if the model path is invalid or the model fails to generate text.
+    """
+    model = Llama(model_path=options['model_path'])
+    system_message = "You are a helpful assistant"
+    user_message = options["input_text"]
+    prompt = f"""<s>[INST] <<SYS>>
+    {system_message}
+    <</SYS>>
+    {user_message} [/INST]"""
+    output = model(prompt, max_tokens=options['max_tokens'], echo=False)
+    if not isinstance(output, Iterator) and len(output['choices']) > 0:
+        return output['choices'][0]['text']
+    return ""
 
 
 def image_to_image(options: ImageToImageOptions) -> None:

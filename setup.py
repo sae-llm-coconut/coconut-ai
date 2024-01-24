@@ -16,6 +16,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     install_requires=[
         'requests==2.31.0',
-        'pillow==10.2.0'
+        'pillow==10.2.0',
+        'llama-cpp-python==0.2.32'
     ]
 )
