@@ -2,7 +2,7 @@
 
 ## About
 
-**Coconut AI** is a **Python library** that allows you to use [AUTOMATIC1111/Stable Diffusion Web API](https://github.com/AUTOMATIC1111/stable-diffusion-webui), to **generate images from text** or **images to images**.
+**Coconut AI** is a **Python library** that allows you to use [AUTOMATIC1111/Stable Diffusion Web API](https://github.com/AUTOMATIC1111/stable-diffusion-webui) and [LLama 2](https://ai.meta.com/llama/), to **generate images from text**, **images to images** or **text to text**.
 
 The library is available on **PyPy**: <https://pypi.org/project/coconut-ai/>.
 
