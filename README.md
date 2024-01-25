@@ -20,17 +20,33 @@ The library is available on **PyPy**: <https://pypi.org/project/coconut-ai/>.
 pipenv install coconut-ai
 ```
 
-### Stable Diffusion Usage
+### Stable Diffusion Guide
 
 For a complete example, see the [coconut-ai-example](https://github.com/sae-llm-coconut/coconut-ai-example) repository.
 
+#### Install Stable Diffusion Web UI
+
+[AUTOMATIC1111/Stable Diffusion Web UI installation guide](https://github.com/AUTOMATIC1111/stable-diffusion-webui?tab=readme-ov-file#installation-and-running)
+
 ```sh
-# Go to AUTOMATIC1111/Stable Diffusion web UI source code
+# Clone the AUTOMATIC1111/Stable Diffusion Web UI repository
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+
+# Go to AUTOMATIC1111/Stable Diffusion Web UI source code
 cd stable-diffusion-webui
 
-# Run the AUTOMATIC1111/Stable Diffusion Web API
-./webui.sh --api --nowebui
+# For Windows users, run the following command for starting the server
+./webui-user.bat --api --nowebui
 
+# For Linux/MacOS users, run the following command for starting the server
+./webui.sh --api --nowebui
+```
+
+#### Stable Diffusion Usage
+
+**Note:** Before using the library, you must start the Stable Diffusion Web UI server.
+
+```sh
 # Go to your Python project/source code
 cd ../python-project
 pipenv install coconut-ai
@@ -60,7 +76,7 @@ Run the script:
 pipenv run python main.py
 ```
 
-### LLama 2 Usage
+### LLama 2 Guide
 
 For a complete example, see the [coconut-ai-example](https://github.com/sae-llm-coconut/coconut-ai-example) repository.
 
