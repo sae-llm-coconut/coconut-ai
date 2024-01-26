@@ -78,11 +78,15 @@ pipenv run python main.py
 
 ### LLama 2 Guide
 
+#### Install LLama 2 Model
+
 For a complete example, see the [coconut-ai-example](https://github.com/sae-llm-coconut/coconut-ai-example) repository.
 
 Download the model [`llama-2-7b.Q5_K_M.gguf`](https://huggingface.co/TheBloke/Llama-2-7B-GGUF/blob/main/llama-2-7b.Q5_K_M.gguf) manually.
 
 All available models can be found on the [Hugging Face](https://huggingface.co/TheBloke/Llama-2-7B-GGUF#provided-files) website.
+
+#### LLama 2 Usage
 
 ```sh
 # Go to your Python project/source code
