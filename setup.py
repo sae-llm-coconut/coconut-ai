@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 setuptools.setup(
     name="coconut-ai",
-    version="0.2.0",
+    version="1.0.0",
     author="Coconut AI",
     description="Coconut AI",
     url="https://github.com/sae-llm-coconut/coconut-ai",
